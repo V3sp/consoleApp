@@ -55,6 +55,7 @@ class Console
             $this->repository = $this->args[1];
             $this->branch = $this->args[2];
         }
+        return $this;
     }
 
     /**
@@ -102,6 +103,20 @@ class Console
 
         return $service->makeRequest($this->getRepository(), $this->getBranch());
 
+    }
+
+    public function makeOutput($output)
+    {
+        if ($this->is_sha1($output)) {
+            echo $output;
+            echo " \r\n";
+        } else {
+            $message = json_decode($output);
+            echo 'ups something goes wrong.';
+            echo " \r\n";
+            echo $message->message;
+            echo " \r\n";
+        }
     }
 
 }
