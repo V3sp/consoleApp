@@ -1,10 +1,11 @@
 {
   "require": {
-    "symfony/console": "^4.3"
+    "symfony/console": "^4.3",
+    "ext-json": "*"
   },
   "autoload": {
     "psr-4": {
-      "Services\\":"Repository"
+      "Services\\": "Services"
     },
     "classmap": [
       "Services"
